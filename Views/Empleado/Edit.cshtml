@@ -1,0 +1,45 @@
+﻿@model JerarquiaEmpleadosMVC.Models.Empleado
+
+@{
+    ViewData["Title"] = "Editar Empleado";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-success text-dark">
+            <h4 class="mb-0"><i class="bi bi-pencil-square me-2"></i>Editar empleado</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="Codigo" />
+
+                <div class="mb-3">
+                    <label asp-for="Puesto" class="form-label"></label>
+                    <input asp-for="Puesto" class="form-control" placeholder="Ej. Sub Gerente" />
+                    <span asp-validation-for="Puesto" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Nombre" class="form-label"></label>
+                    <input asp-for="Nombre" class="form-control" placeholder="Nombre del empleado" />
+                    <span asp-validation-for="Nombre" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="CodigoJefe" class="form-label">Código del Jefe</label>
+                    <input asp-for="CodigoJefe" class="form-control" placeholder="Ej. 1 (opcional)" />
+                    <span asp-validation-for="CodigoJefe" class="text-danger small"></span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn bg-success text-white">
+                        <i class="bi bi-save me-1"></i>Guardar cambios
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="bi bi-x-circle me-1"></i>Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

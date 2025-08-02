@@ -1,0 +1,22 @@
+﻿@model JerarquiaEmpleadosMVC.Models.Empleado
+
+<li class="mb-2">
+    <span class="d-flex align-items-start">
+        <i class="bi bi-person-fill text-primary me-2"></i>
+        <span>
+            <strong class="text-dark">@Model.Codigo</strong> –
+            <span class="text-secondary">@Model.Puesto</span> –
+            <span class="text-body">@Model.Nombre</span>
+        </span>
+    </span>
+
+    @if (Model.Subordinados != null && Model.Subordinados.Any())
+    {
+        <ul class="ms-4 mt-1">
+            @foreach (var sub in Model.Subordinados)
+            {
+                @Html.Partial("_EmpleadoItem", sub)
+            }
+        </ul>
+    }
+</li>
